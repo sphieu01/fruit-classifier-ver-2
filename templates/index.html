@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruit Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an image of apple, banana or orange</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <input type="submit" value="Upload">
+        </form>
+
+        {% if label %}
+        <div class="result">
+            <h2>Prediction: {{ label }}</h2>
+            <p>Confidence: {{ confidence }}</p>
+            <img src="{{ img_data }}" alt="Uploaded Image" width="200">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
